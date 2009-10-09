@@ -1,0 +1,45 @@
+From d38a4febd82614517ee24adf0fcdbc6bf61f2afb Mon Sep 17 00:00:00 2001
+From: anuj  dutta <andhapp@andHapps-MacBook.local>
+Date: Fri, 9 Oct 2009 23:00:28 +0530
+Subject: [PATCH] Added fix for require_gem issue
+
+---
+ bin/htmldiff |    2 +-
+ bin/ldiff    |    2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+ mode change 100644 => 100755 bin/htmldiff
+ mode change 100644 => 100755 bin/ldiff
+
+diff --git a/bin/htmldiff b/bin/htmldiff
+old mode 100644
+new mode 100755
+index 3d4953f..01a45f6
+--- a/bin/htmldiff
++++ b/bin/htmldiff
+@@ -15,7 +15,7 @@
+ 
+ begin
+   require 'rubygems'
+-  require_gem 'diff-lcs', "1.1.1"
++  require 'diff-lcs'
+   require 'diff/lcs/string'
+ rescue LoadError
+   require 'diff/lcs'
+diff --git a/bin/ldiff b/bin/ldiff
+old mode 100644
+new mode 100755
+index 4437ba5..c17eee5
+--- a/bin/ldiff
++++ b/bin/ldiff
+@@ -21,7 +21,7 @@ load_state = 1
+   begin
+     if 1 == load_state
+       require 'rubygems'
+-      require_gem 'diff-lcs', '= 1.1.1'
++      require 'diff-lcs'
+     else
+       require 'diff/lcs'
+     end
+-- 
+1.6.4.2
+
