@@ -22,8 +22,6 @@ rescue LoadError
   require 'diff/lcs/string'
 end
 
-require 'text/format'
-
 class HTMLDiff #:nodoc:
   attr_accessor :output
 
@@ -53,10 +51,7 @@ if ARGV.size != 2
 end
 
 hd = HTMLDiff.new($stdout)
-tf = Text::Format.new
-tf.tabstop = 4
-
-preprocess = lambda { |line| tf.expand(line.chomp) }
+preprocess = lambda { |line| line.chomp }
 
 a = IO.readlines(ARGV[0]).map(&preprocess)
 b = IO.readlines(ARGV[1]).map(&preprocess)
